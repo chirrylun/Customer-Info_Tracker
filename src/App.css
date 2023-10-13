@@ -1,21 +1,21 @@
 .stuff {
   background-color: dodgerblue;
-  padding: 20px; 
+ 
   text-align: center;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  display: flex;
-  flex-direction: column;
+  display: block;
+
 }
 .otherStuff {
   margin-top: 100px;
-  background-color: dodgerblue;
-  padding: 20px; 
-  text-align: center;
-  justify-content: center;
+
+
+  text-align: left;
+  justify-content: left;
   align-items: center;
-  display: flex;
-  flex-direction: column;
+  display: block;
+  
 }
 
 .App-logo {
@@ -44,6 +44,7 @@
   color: #61dafb;
 }
 .infoFields{
+  padding: 0px 20px;
   display: flex;
   align-items: center;
   
@@ -127,13 +128,33 @@
 }
 .exportNumber{
   margin-left: 20px;
+
+}
+
+.expNumber{
+  font-weight: 700;
 }
 .taskItem{
   display: flex;
   
 }
+.taskList{
+  padding: 0px 20px;
+  text-align: left;
+  justify-content: left;
+  margin-top: 10px;
+  
+}
+.exportList{
+
+  padding: 0px 20px;
+  background-color: dodgerblue;
+
+}
 .exportItem{
   display: flex;
+  padding: 0px 20px;
+;
   
 }
 .taskNumber{
@@ -182,10 +203,12 @@
 }
 
 .exportHeader{
+  padding: 0px 20px;
   color: white;
   
 }
 .projectHeader{
+
   color: white;
 
 }

@@ -1,14 +1,11 @@
-import { useState } from "react";
-import { saveAs } from "file-saver"; // Import the FileSaver library
+import React, { useState } from "react";
+import { saveAs } from "file-saver";
 import "./App.css";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
-
   const [newTask, setNewTask] = useState("");
-
-  const [newNumber, setNewNumber] = useState();
-
+  const [newNumber, setNewNumber] = useState("");
   const [exportList, setExportList] = useState([]);
 
   const handleChange = (event) => {
@@ -38,6 +35,12 @@ function App() {
     const tasksToExport = todoList.filter(
       (task) => !exportList.some((exportedTask) => exportedTask.id === task.id)
     );
+
+    if (tasksToExport.length === 0) {
+      alert("No new data!");
+    } else {
+      alert("Export was successful!");
+    }
 
     // Add only new tasks to the export list
     setExportList([...exportList, ...tasksToExport]);
@@ -70,7 +73,7 @@ function App() {
     <div className="App">
       <div className="stuff">
         <div>
-          <h1 className="projectHeader">Customer Info Tracker </h1>
+          <h1 className="projectHeader">Customer Info Tracker</h1>
         </div>
         <div className="addTask">
           <div className="infoFields">
@@ -86,11 +89,12 @@ function App() {
                 className="numberInput"
               />
             </div>
-
             <button onClick={addTask}>Add Customer</button>
-            {todoList.length>=1 && <button className="exportButton" onClick={exportTask}>
-              Export
-            </button>}
+            {todoList.length >= 1 && (
+              <button className="exportButton" onClick={exportTask}>
+                Export
+              </button>
+            )}
             {todoList.length !== 0 && (
               <button className="deleteAll" onClick={deleteAll}>
                 Delete All
@@ -98,34 +102,35 @@ function App() {
             )}
           </div>
         </div>
-        <div className="taskList">
-          {todoList.map((task) => {
-            return (
-              <div className="taskItem">
-                <p className="taskName">Customer Name: {task.taskName}</p>
-                {task.taskNumber.length === 0 ? (
-                  <p className="taskNumber">
-                    Customer Number: <span style={{ color: "red" }}>None</span>
-                  </p>
-                ) : (
-                  <p className="taskNumber">
-                    {" "}
-                    Customer Number:<span style={{ color: "green" }}>{task.taskNumber}</span>
-                  </p>
-                )}
-                <button
-                  className="delete-button"
-                  onClick={() => deleteTask(task.id)}
-                >
-                  Delete
-                </button>
-              </div>
-            );
-          })}
-        </div>
-        </div>
+      </div>
+      <div className="taskList">
+        {todoList.map((task) => (
+          <div className="taskItem" key={task.id}>
+            <p className="taskName">
+              <span className="expNumber">Customer Name:</span> {task.taskName}
+            </p>
+            {task.taskNumber.length === 0 ? (
+              <p className="taskNumber">
+                <span className="expNumber">Customer Number:</span>{" "}
+                <span style={{ color: "red" }}>None</span>
+              </p>
+            ) : (
+              <p className="taskNumber">
+                <span className="expNumber">Customer Number:</span>
+                <span style={{ color: "green" }}>{task.taskNumber}</span>
+              </p>
+            )}
+            <button
+              className="delete-button"
+              onClick={() => deleteTask(task.id)}
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </div>
 
-<div className="otherStuff">
+      <div className="otherStuff">
         <div className="exportList">
           <div className="exportSection">
             <h1 className="exportHeader">Export List</h1>
@@ -140,27 +145,27 @@ function App() {
               </button>
             )}
           </div>
-
-          {exportList.map((task) => {
-            return (
-              <div className="exportItem">
-                <p className="exportName">Customer Name: {task.taskName}</p>
-                {task.taskNumber.length === 0 ? (
-                  <p className="exportNumber">
-                    Customer Number: <span style={{ color: "red" }}>None</span>
-                  </p>
-                ) : (
-                  <h2 className="exportNumber">
-                    {" "}
-                    Customer Number:<span style={{ color: "green" }}>{task.taskNumber}</span>
-                  </h2>
-                )}
-              </div>
-            );
-          })}
         </div>
-        </div>
-      
+        {exportList.map((task) => (
+          <div className="exportItem" key={task.id}>
+            <p className="exportName">
+              <span className="expNumber">Customer Number:</span>{" "}
+              <span>{task.taskName}</span>
+            </p>
+            {task.taskNumber.length === 0 ? (
+              <p className="exportNumber">
+                <span className="expNumber">Customer Number:</span>
+                <span style={{ color: "red" }}>None</span>
+              </p>
+            ) : (
+              <p className="exportNumber">
+                <span className="expNumber">Customer Number:</span>
+                <span style={{ color: "green" }}>{task.taskNumber}</span>
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
