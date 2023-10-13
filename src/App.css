@@ -1,5 +1,21 @@
-.App {
+.stuff {
+  background-color: dodgerblue;
+  padding: 20px; 
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.otherStuff {
+  margin-top: 100px;
+  background-color: dodgerblue;
+  padding: 20px; 
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -19,7 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -27,6 +43,155 @@
 .App-link {
   color: #61dafb;
 }
+.infoFields{
+  display: flex;
+  align-items: center;
+  
+}
+.info{
+  display: flex;
+  align-items: center;
+  margin-right: 20px
+}
+
+.taskInput{
+  border-width: 1px;
+  outline: none;
+  border-style: solid;
+  border-color: white;
+  border-radius: 30px;
+  margin-left: 10px;
+
+  padding: 7px;
+ 
+}
+.numberInput{
+  border-width: 1px;
+  outline: none;
+  border-style: solid;
+  border-color: white;
+  border-radius: 30px;
+
+  margin-left: 10px;
+  height: 20px;
+  padding: 7px;
+ 
+}
+
+.addTask button{
+  background-color: white;
+  padding: 10px;
+  outline: none;
+  border:none;
+  border-radius: 10px;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+.addTask button:hover{
+  box-shadow: 5px 5px 15px rgba(0, 0,0,0.2);
+  transition: 0.2s ease;
+}
+.exportButton{
+  
+  background-color: white;
+  padding: 10px 20px;
+  outline: none;
+  border:none;
+  border-radius: 10px;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: 0.2s ease;
+  
+
+}
+.exportButton:hover{
+  box-shadow: 5px 5px 15px rgba(0, 0,0,0.2);
+  transition: 0.2s ease;
+}
+.emptyButton{
+  background-color: white;
+  outline: none;
+  border: none;
+  
+  border-radius: 30px;
+  padding: 10px 15px;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: 0.2s ease;
+  
+}
+.emptyButton:hover{
+  box-shadow: 5px 5px 15px rgba(0, 0,0,0.2);
+  transition: 0.2s ease;
+}
+.exportNumber{
+  margin-left: 20px;
+}
+.taskItem{
+  display: flex;
+  
+}
+.exportItem{
+  display: flex;
+  
+}
+.taskNumber{
+  margin-left: 30px;
+}
+.delete-button{
+  background-color: white;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  height: 30px;
+  width: 70px;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: 0.2s ease;
+  
+}
+.delete-button:hover{
+  box-shadow: 5px 5px 15px rgba(0, 0,0,0.2);
+  transition: 0.2s ease;
+}
+.extractButton{
+  background-color: white;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 15px;
+  margin-left: 15px;
+  transition: 0.2s ease;
+  font-weight: bold;
+
+
+}
+.extractButton:hover{
+  box-shadow: 5px 5px 15px rgba(0, 0,0,0.2);
+  transition: 0.2s ease;
+}
+
+.exportSection{
+  align-items: center;
+  display: flex;
+  
+}
+.taskItem{
+  align-items: center;
+}
+
+.exportHeader{
+  color: white;
+  
+}
+.projectHeader{
+  color: white;
+
+}
+
+
+
 
 @keyframes App-logo-spin {
   from {
